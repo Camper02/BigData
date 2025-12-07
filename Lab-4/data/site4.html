@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html class="client-nojs" dir="ltr" lang="ru">
+<head>
+<meta charset="utf-8"/>
+<title>MapReduce — Википедия</title>
+<script>(function(){var className="client-js";var cookie=document.cookie.match(/(?:^|; )ruwikimwclientpreferences=([^;]+)/);if(cookie){cookie[1].split('%2C').forEach(function(pref){className=className.replace(new RegExp('(^| )'+pref.replace(/-clientpref-\w+$|[^\w-]+/g,'')+'-clientpref-\\w+( |$)'),'$1'+pref+'$2');});}document.documentElement.className=className;}());RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":[",\t."," \t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"],"wgRequestId":"d7bd0ddf-5922-4956-aa63-3d4e158857e0","wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"MapReduce","wgTitle":"MapReduce","wgCurRevisionId":146281996,"wgRevisionId":146281996,"wgArticleId":1406277,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Страницы, использующие устаревший тег source","Википедия:Cite web (не указан язык)","Google","Функциональное программирование","Параллельные вычисления"],"wgPageViewLanguage":"ru","wgPageContentLanguage":"ru","wgPageContentModel":"wikitext","wgRelevantPageName":"MapReduce","wgRelevantArticleId":1406277,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgNoticeProject":"wikipedia","wgFlaggedRevsParams":{"tags":{"accuracy":{"levels":1}}},"wgStableRevisionId":146281996,"wgConfirmEditCaptchaNeededForGenericEdit":false,"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":0,"wgVisualEditor":{"pageLanguageCode":"ru","pageLanguageDir":"ltr","pageVariantFallbacks":"ru"},"wgMFDisplayWikibaseDescriptions":{"search":true,"watchlist":true,"tagline":false,"nearby":true},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgEditSubmitButtonLabelPublish":true,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgVector2022LanguageInHeader":false,"wgULSisLanguageSelectorEmpty":false,"wgWikibaseItemId":"Q567759","wgCheckUserClientHintsHeadersJsApi":["brands","architecture","bitness","fullVersionList","mobile","model","platform","platformVersion"],"GEHomepageSuggestedEditsEnableTopics":true,"wgGESuggestedEditsTaskTypes":{"taskTypes":["copyedit"],"unavailableTaskTypes":[]},"wgGETopicsMatchModeEnabled":false,"wgGELevelingUpEnabledForUser":false,"wgGEUseMetricsPlatformExtension":false,"wgMetricsPlatformUserExperiments":{"active_experiments":[],"overrides":[],"enrolled":[],"assigned":[],"subject_ids":[],"sampling_units":[],"coordinator":[]}};
+RLSTATE={"ext.gadget.common-site":"ready","ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.pygments":"ready","skins.vector.styles.legacy":"ready","ext.flaggedRevs.basic":"ready","mediawiki.codex.messagebox.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.pygments.view","site","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.flaggedRevs.advanced","ext.gadget.collapserefs","ext.gadget.directLinkToCommons","ext.gadget.referenceTooltips","ext.gadget.logo","ext.gadget.edittop","ext.gadget.navboxDefaultGadgets","ext.gadget.wikibugs","ext.urlShortener.toolbar","ext.centralauth.centralautologin","mmv.bootstrap","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.echo.centralauth","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","wikibase.databox.fromWikidata","ext.checkUser.clientHints","ext.quicksurveys.init","ext.growthExperiments.SuggestedEditSession","ext.xLab"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link href="load.php" rel="stylesheet"/>
+<script async="" src="load.php"></script>
+<meta content="" name="ResourceLoaderDynamicStyles"/>
+<link href="load.php" rel="stylesheet"/>
+<link href="load.php" rel="stylesheet"/>
+<noscript><link href="load.php" rel="stylesheet"/></noscript>
+<meta content="MediaWiki 1.46.0-wmf.5" name="generator"/>
+<meta content="origin" name="referrer"/>
+<meta content="origin-when-cross-origin" name="referrer"/>
+<meta content="max-image-preview:standard" name="robots"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="width=1120" name="viewport"/>
+<meta content="MapReduce — Википедия" property="og:title"/>
+<meta content="website" property="og:type"/>
+<link href="//upload.wikimedia.org" rel="preconnect"/>
+<link href="index.php" rel="alternate" title="Править" type="application/x-wiki"/>
+<link href="wikipedia.png" rel="apple-touch-icon"/>
+<link href="wikipedia.ico" rel="icon"/>
+<link href="search" rel="search" title="Википедия (ru)" type="application/opensearchdescription+xml"/>
+<link href="api.php" rel="EditURI" type="application/rsd+xml"/>
+<link href="MapReduce" rel="canonical"/>
+<link href="https://creativecommons.org/licenses/by-sa/4.0/deed.ru" rel="license"/>
+<link href="index.php" rel="alternate" title="Википедия — Atom-лента" type="application/atom+xml"/>
+<link href="//meta.wikimedia.org" rel="dns-prefetch">
+<link href="auth.wikimedia.org" rel="dns-prefetch"/>
+</link></head>
+<body class="skin-vector-legacy mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-MapReduce rootpage-MapReduce skin-vector action-view">
+<div aria-live="polite" class="mw-aria-live-region" id="mw-aria-live-region"></div><div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<div class="mw-body" id="content" role="main">
+<a id="top"></a>
+<div id="siteNotice"><!-- CentralNotice --></div>
+<div class="mw-indicators">
+</div>
+<h1 class="firstHeading mw-first-heading" id="firstHeading"><span class="mw-page-title-main">MapReduce</span></h1>
+<div class="vector-body" id="bodyContent">
+<div class="noprint" id="siteSub">Материал из Википедии — свободной энциклопедии</div>
+<div id="contentSub"><div id="mw-content-subtitle"></div></div>
+<div id="contentSub2"></div>
+<div id="jump-to-nav"></div>
+<a class="mw-jump-link" href="MapReduce">Перейти к навигации</a>
+<a class="mw-jump-link" href="MapReduce">Перейти к поиску</a>
+<div class="mw-body-content" id="mw-content-text"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="ru"><p><b>MapReduce</b> — модель <a href="%D0%A0%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D1%91%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F" title="Распределённые вычисления">распределённых вычислений</a>, представленная компанией <a href="Google_(%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F)" title="Google (компания)">Google</a>, используемая для <a href="%D0%9F%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F" title="Параллельные вычисления">параллельных вычислений</a> над очень большими, вплоть до нескольких <a href="%D0%9F%D0%B5%D1%82%D0%B0%D0%B1%D0%B0%D0%B9%D1%82" title="Петабайт">петабайт</a><sup class="reference" id="cite_ref-1"><a href="MapReduce"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup>, наборами данных в компьютерных <a href="%D0%9A%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80_(%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0_%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BE%D0%B2)" title="Кластер (группа компьютеров)">кластерах</a>.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><input class="toctogglecheckbox" id="toctogglecheckbox" role="button" style="display:none" type="checkbox"/><div class="toctitle" dir="ltr" lang="ru"><h2 id="mw-toc-heading">Содержание</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="MapReduce"><span class="tocnumber">1</span> <span class="toctext">Обзор</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="MapReduce"><span class="tocnumber">2</span> <span class="toctext">Пример</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="MapReduce"><span class="tocnumber">3</span> <span class="toctext">Примечания</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="MapReduce"><span class="tocnumber">4</span> <span class="toctext">Ссылки</span></a></li>
+</ul>
+</div>
+<div class="mw-heading mw-heading2"><h2 id="Обзор"><span id=".D0.9E.D0.B1.D0.B7.D0.BE.D1.80"></span>Обзор</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a class="mw-editsection-visualeditor" href="index.php" title="Редактировать раздел «Обзор»"><span>править</span></a><span class="mw-editsection-divider"> | </span><a href="index.php" title="Редактировать код раздела «Обзор»"><span>править код</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<p>MapReduce — это <a href="%D0%A4%D1%80%D0%B5%D0%B9%D0%BC%D0%B2%D0%BE%D1%80%D0%BA" title="Фреймворк">фреймворк</a> для вычисления некоторых наборов распределенных задач с использованием большого количества компьютеров (называемых «нодами»), образующих <a href="%D0%9A%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80_(%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0_%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BE%D0%B2)" title="Кластер (группа компьютеров)">кластер</a>.
+</p><p>Работа MapReduce состоит из двух шагов: Map и Reduce, названных так по аналогии с одноименными <a href="%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F_%D0%B2%D1%8B%D1%81%D1%88%D0%B5%D0%B3%D0%BE_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B0" title="Функция высшего порядка">функциями высшего порядка</a>, <a href="Map_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)" title="Map (программирование)">map</a> и <a class="mw-redirect" href="%D0%A1%D0%B2%D0%B5%D1%80%D1%82%D0%BA%D0%B0_%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0" title="Свертка списка">reduce</a>.
+</p><p>На Map-шаге происходит предварительная обработка входных данных. Для этого один из компьютеров (называемый главным узлом — master node) получает входные данные задачи, разделяет их на части и передает другим компьютерам (рабочим узлам — worker node) для предварительной обработки.
+</p><p>На Reduce-шаге происходит <a href="%D0%A1%D0%B2%D1%91%D1%80%D1%82%D0%BA%D0%B0_%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0" title="Свёртка списка">свёртка</a> предварительно обработанных данных. Главный узел получает ответы от рабочих узлов и на их основе формирует результат — решение задачи, которая изначально формулировалась.
+</p><p>Преимущество MapReduce заключается в том, что он позволяет распределенно производить операции предварительной обработки и свертки. Операции предварительной обработки работают независимо друг от друга и могут производиться параллельно (хотя на практике это ограничено источником входных данных и/или количеством используемых процессоров). Аналогично, множество рабочих узлов может осуществлять свертку — для этого необходимо только чтобы все результаты предварительной обработки с одним конкретным значением ключа обрабатывались одним рабочим узлом в один момент времени. Хотя этот процесс может быть менее эффективным по сравнению с более последовательными алгоритмами, MapReduce может быть применен к большим объёмам данных, которые могут обрабатываться большим количеством серверов. Так, MapReduce может быть использован для сортировки петабайта данных, что займет всего лишь несколько часов. Параллелизм также дает некоторые возможности восстановления после частичных сбоев серверов: если в рабочем узле, производящем операцию предварительной обработки или свертки, возникает сбой, то его работа может быть передана другому рабочему узлу (при условии, что входные данные для проводимой операции доступны).
+</p><p>Фреймворк в большой степени основан на функциях map и <a href="%D0%A1%D0%B2%D1%91%D1%80%D1%82%D0%BA%D0%B0_%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0" title="Свёртка списка">reduce</a>, широко используемых в <a href="%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" title="Функциональное программирование">функциональном программировании</a><sup class="reference" id="cite_ref-map_2-0"><a href="MapReduce"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></a></sup>, хотя фактически семантика фреймворка отличается от прототипа<sup class="reference" id="cite_ref-3"><a href="MapReduce"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></a></sup>.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Пример"><span id=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80"></span>Пример</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a class="mw-editsection-visualeditor" href="index.php" title="Редактировать раздел «Пример»"><span>править</span></a><span class="mw-editsection-divider"> | </span><a href="index.php" title="Редактировать код раздела «Пример»"><span>править код</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<p>Канонический пример приложения, написанного с помощью MapReduce, — это процесс, подсчитывающий, сколько раз различные слова встречаются в наборе документов:
+</p>
+<div class="mw-highlight mw-highlight-lang-c mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">// Функция, используемая рабочими нодами на Map-шаге</span>
+<span class="c1">// для обработки пар ключ-значение из входного потока</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">document</span><span class="p">)</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// Входные данные:</span>
+<span class="w">    </span><span class="c1">//   name - название документа</span>
+<span class="w">    </span><span class="c1">//   document - содержимое документа</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">document</span><span class="o">:</span>
+<span class="w">        </span><span class="n">EmitIntermediate</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">);</span>
+<span class="w"> </span>
+<span class="c1">// Функция, используемая рабочими нодами на Reduce-шаге</span>
+<span class="c1">// для обработки пар ключ-значение, полученных на Map-шаге</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">reduce</span><span class="p">(</span><span class="n">Iterator</span><span class="w"> </span><span class="n">partialCounts</span><span class="p">)</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// Входные данные:</span>
+<span class="w">    </span><span class="c1">//   partialCounts - список группированных промежуточных результатов. Количество записей в partialCounts и есть </span>
+<span class="w">    </span><span class="c1">//     требуемое значение</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">partialCounts</span><span class="o">:</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">parseInt</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Emit</span><span class="p">(</span><span class="n">AsString</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+</pre></div>
+<p>В этом коде на Map-шаге каждый документ разбивается на слова, и возвращаются пары, где ключом является само слово, а значением — «1». Если в документе одно и то же слово встречается несколько раз, то в результате предварительной обработки этого документа будет столько же этих пар, сколько раз встретилось это слово. Сформированные пары отправляются на дальнейшую обработку, система группирует их по ключу (в данном случае — ключом является само слово) и распределяет по множеству процессоров. Наборы объектов с одинаковым ключом в группе попадают на вход функции reduce, которая перерабатывает поток данных, сокращая его объёмы. В данном примере функция reduce просто складывает вхождения данного слова по всему потоку, и результат — только одна сумма — отправляется дальше в виде выходных данных.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Примечания"><span id=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F"></span>Примечания</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a class="mw-editsection-visualeditor" href="index.php" title="Редактировать раздел «Примечания»"><span>править</span></a><span class="mw-editsection-divider"> | </span><a href="index.php" title="Редактировать код раздела «Примечания»"><span>править код</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<div class="reflist columns" style="list-style-type: decimal;">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="MapReduce">↑</a></span> <span class="reference-text"><span class="citation"><span lang="und"><a class="external text" href="https://web.archive.org/web/20131019063218/http://news.cnet.com/8301-10784_3-9955184-7.html" rel="nofollow">Google spotlights data center inner workings | Tech news blog — CNET News.com</a></span><span class="hidden-ref" style="display:none;"> </span>. Дата обращения: 27 сентября 2008. Архивировано из <a class="external text" href="http://news.cnet.com/8301-10784_3-9955184-7.html" rel="nofollow">оригинала</a> 19 октября 2013 года.</span></span>
+</li>
+<li id="cite_note-map-2"><span class="mw-cite-backlink"><a href="MapReduce">↑</a></span> <span class="reference-text">«Our abstraction is inspired by the map and reduce primitives present in Lisp and many other functional languages.» -<a class="external text" href="http://research.google.com/archive/mapreduce.html" rel="nofollow">«MapReduce: Simplified Data Processing on Large Clusters»</a> <a class="external text" href="https://web.archive.org/web/20171211235750/http://research.google.com/archive/mapreduce.html" rel="nofollow">Архивная копия</a> от 11 декабря 2017 на <a href="Wayback_Machine" title="Wayback Machine">Wayback Machine</a>, by Jeffrey Dean and Sanjay Ghemawat; from <a class="mw-redirect" href="Google_Labs" title="Google Labs">Google Labs</a></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="MapReduce">↑</a></span> <span class="reference-text"><a class="external text" href="http://userpages.uni-koblenz.de/~laemmel/MapReduce/paper.pdf" rel="nofollow">«Google’s MapReduce Programming Model — Revisited»</a> <a class="external text" href="https://web.archive.org/web/20150423212233/http://userpages.uni-koblenz.de/~laemmel/MapReduce/paper.pdf" rel="nofollow">Архивная копия</a> от 23 апреля 2015 на <a href="Wayback_Machine" title="Wayback Machine">Wayback Machine</a> — статья <a href="%D0%9B%D0%B5%D0%BC%D0%BC%D0%B5%D0%BB%D1%8C,_%D0%A0%D0%B0%D0%BB%D1%8C%D1%84" title="Леммель, Ральф">Ральфа Леммеля</a> из <a href="Microsoft" title="Microsoft">Microsoft</a></span>
+</li>
+</ol></div></div>
+<div class="mw-heading mw-heading2"><h2 id="Ссылки"><span id=".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8"></span>Ссылки</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a class="mw-editsection-visualeditor" href="index.php" title="Редактировать раздел «Ссылки»"><span>править</span></a><span class="mw-editsection-divider"> | </span><a href="index.php" title="Редактировать код раздела «Ссылки»"><span>править код</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<ul><li><a class="external text" href="http://research.google.com/archive/mapreduce.html" rel="nofollow">MapReduce: Simplified Data Processing on Large Clusters</a></li>
+<li><a class="external text" href="http://citforum.ru/database/articles/mr_vs_dbms-2/" rel="nofollow">MapReduce и параллельные СУБД: друзья или враги?, citforum.ru</a></li>
+<li><a class="external text" href="http://alphaworks.ibm.com/tech/mapreducetools" rel="nofollow">IBM MapReduce Tools for Eclipse</a></li></ul>
+<div aria-labelledby="Google_LLC" class="navbox" data-name="Google" role="navigation"><table class="nowraplinks collapsible collapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th class="navbox-title" colspan="2" scope="colgroup"><span class="navbox-gear" style="float:left;text-align:left;width:5em;margin-right:0.5em"><span class="noprint skin-invert-image" typeof="mw:File"><a href="%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:Google" title="Перейти к шаблону «Google»"><img alt="Перейти к шаблону «Google»" class="mw-file-element" data-file-height="14" data-file-width="14" decoding="async" height="14" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/14px-Wikipedia_interwiki_section_gear_icon.svg.png" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/21px-Wikipedia_interwiki_section_gear_icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/28px-Wikipedia_interwiki_section_gear_icon.svg.png 2x" width="14"/></a></span></span><div id="Google_LLC" style="font-size:114%;margin:0 5em"><a href="Google_(%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F)" title="Google (компания)">Google LLC</a></div></th></tr><tr><td class="navbox-abovebelow hlist" colspan="2"><div>
+<ul><li><span class="nowrap"><b>Председатель совета директоров</b></span>: <a href="%D0%A8%D0%BC%D0%B8%D0%B4%D1%82,_%D0%AD%D1%80%D0%B8%D0%BA" title="Шмидт, Эрик">Эрик Шмидт</a></li>
+<li><span class="nowrap"><b>Директор, президент по технологиям и сооснователь</b></span>: <a href="%D0%91%D1%80%D0%B8%D0%BD,_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9" title="Брин, Сергей">Сергей Брин</a></li>
+<li><span class="nowrap"><b>Главный исполнительный директор и сооснователь</b></span>: <a href="%D0%9F%D0%B5%D0%B9%D0%B4%D0%B6,_%D0%9B%D0%B0%D1%80%D1%80%D0%B8" title="Пейдж, Ларри">Ларри Пейдж</a><br/><b>Материнская компания</b>: <a href="Alphabet" title="Alphabet">Alphabet</a></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px">Реклама</th><td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="AdMob" title="AdMob">AdMob</a></li>
+<li><span data-interwiki-article="Adscape" data-interwiki-lang="en"><a class="new" href="index.php" title="Adscape (страница отсутствует)">Adscape</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Adscape" title="en:Adscape"><span title="Adscape — версия статьи «Adscape» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="AdSense" title="AdSense">AdSense</a></li>
+<li><span data-interwiki-article="Google Advertising Professional" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Advertising Professional (страница отсутствует)">Advertising Professional</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Advertising_Professional" title="en:Google Advertising Professional"><span title="Google Advertising Professional — версия статьи «Google Advertising Professional» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Ads" title="Google Ads">Ads</a></li>
+<li><a href="Google_Analytics" title="Google Analytics">Analytics</a></li>
+<li><a href="DoubleClick" title="DoubleClick">DoubleClick</a></li>
+<li><a href="Google_Insights_for_Search" title="Google Insights for Search">Insights for Search</a></li>
+<li><a href="Google_Trends" title="Google Trends">Trends</a></li>
+<li><a href="Google_Pay_Send" title="Google Pay Send">Wallet</a></li>
+<li><span data-interwiki-article="Google University" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Университет (страница отсутствует)">Google Университет</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_University" title="en:Google University"><span title="Google University — версия статьи «Google Университет» на английском языке">[англ.]</span></a></sup></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px">Коммуникации</th><td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="Google_Allo" title="Google Allo">Allo</a></li>
+<li><a href="Google%2B" title="Google+">Google+</a></li>
+<li><a href="Google_%D0%9A%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C" title="Google Календарь">Calendar</a></li>
+<li><a href="%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80_%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2_Google" title="Мастер сообществ Google">Friend Connect</a></li>
+<li><a href="Google_Duo" title="Google Duo">Duo</a></li>
+<li><a href="Gmail" title="Gmail">Gmail</a></li>
+<li><a href="Google_Inbox" title="Google Inbox">Inbox</a></li>
+<li><a href="%D0%93%D1%80%D1%83%D0%BF%D0%BF%D1%8B_Google" title="Группы Google">Groups</a></li>
+<li><a href="Google_Hangouts" title="Google Hangouts">Hangouts</a></li>
+<li><a href="Google_Meet" title="Google Meet">Meet</a></li>
+<li><a href="Google_%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D1%8F" title="Google Сообщения">Messages</a></li>
+<li><span data-interwiki-article="Google Answers" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Вопросы и ответы (страница отсутствует)">Вопросы и ответы</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Answers" title="en:Google Answers"><span title="Google Answers — версия статьи «Google Вопросы и ответы» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Talk" title="Google Talk">Talk</a></li>
+<li><a href="Google_%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%87%D0%B8%D0%BA" title="Google Переводчик">Translate</a></li>
+<li><a href="Google_Voice" title="Google Voice">Voice</a></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px">ПО</th><td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="Google_Chrome" title="Google Chrome">Chrome</a></li>
+<li><a href="Chromium" title="Chromium">Chromium</a></li>
+<li><a href="Google_%D0%9F%D0%BB%D0%B0%D0%BD%D0%B5%D1%82%D0%B0_%D0%97%D0%B5%D0%BC%D0%BB%D1%8F" title="Google Планета Земля">Earth</a></li>
+<li><a href="Google_Desktop" title="Google Desktop">Gadgets</a></li>
+<li><a href="Google_Goggles" title="Google Goggles">Goggles</a></li>
+<li><a href="Google_Now" title="Google Now">Now</a></li>
+<li><a href="SketchUp" title="SketchUp">SketchUp</a></li>
+<li><a href="Google_Talk" title="Google Talk">Talk</a></li>
+<li><a href="Google_Assistant" title="Google Assistant">Google Assistant</a></li>
+<li><a href="%D0%9F%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C_%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2_Google" title="Панель инструментов Google">Toolbar</a></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px">Платформы</th><td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="Google_Accounts" title="Google Accounts">Account</a></li>
+<li><a href="Android" title="Android">Android</a></li>
+<li><a href="Google_App_Engine" title="Google App Engine">App Engine</a></li>
+<li><a href="BigTable" title="BigTable">BigTable</a></li>
+<li><a href="Chromecast" title="Chromecast">Chromecast</a></li>
+<li><a href="Chrome_OS" title="Chrome OS">Chrome OS</a></li>
+<li><a href="Google_Workspace" title="Google Workspace">Google Workspace</a></li>
+<li><a href="%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0_Google" title="Система пользовательского поиска Google">Пользовательский поиск</a></li>
+<li><a href="Native_Client" title="Native Client">Native Client</a></li>
+<li><a href="Google_File_System" title="Google File System">GFS</a></li>
+<li><a href="Google_Nexus" title="Google Nexus">Nexus</a></li>
+<li><a href="OpenSocial" title="OpenSocial">OpenSocial</a></li>
+<li><a href="Google_Pixel" title="Google Pixel">Pixel</a></li>
+<li><a href="Google_Play" title="Google Play">Play</a></li>
+<li><a href="Google_Public_DNS" title="Google Public DNS">Public DNS</a></li>
+<li><a href="Stadia" title="Stadia">Stadia</a></li>
+<li><a href="Google_TV_(%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0)" title="Google TV (операционная система)">TV</a></li>
+<li><a href="Google_Fuchsia" title="Google Fuchsia">Fuchsia</a></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px">Инструменты<br/>разработки</th><td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="Android_Studio" title="Android Studio">Android Studio</a></li>
+<li><a href="Dart" title="Dart">Dart</a></li>
+<li><span data-interwiki-article="Google Gadgets API" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Gadgets API (страница отсутствует)">Gadgets API</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Gadgets_API" title="en:Google Gadgets API"><span title="Google Gadgets API — версия статьи «Google Gadgets API» на английском языке">[англ.]</span></a></sup></li>
+<li><span data-interwiki-article="GData" data-interwiki-lang="en"><a class="new" href="index.php" title="GData (страница отсутствует)">GData</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/GData" title="en:GData"><span title="GData — версия статьи «GData» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Go" title="Go">Go</a></li>
+<li><a href="Googlebot" title="Googlebot">Googlebot</a></li>
+<li><a href="Google_Guice" title="Google Guice">Guice</a></li>
+<li><a href="Google_Web_Server" title="Google Web Server">GWS</a></li>
+<li><span data-interwiki-article="Google Highly Open Participation Contest" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Highly Open Participation Contest (страница отсутствует)">Highly Open Participation Contest</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Highly_Open_Participation_Contest" title="en:Google Highly Open Participation Contest"><span title="Google Highly Open Participation Contest — версия статьи «Google Highly Open Participation Contest» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="KML" title="KML">KML</a></li>
+<li><a class="mw-selflink selflink">MapReduce</a></li>
+<li><span data-interwiki-article="Mediabot" data-interwiki-lang="en"><a class="new" href="index.php" title="Mediabot (страница отсутствует)">Mediabot</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Mediabot" title="en:Mediabot"><span title="Mediabot — версия статьи «Mediabot» на английском языке">[англ.]</span></a></sup></li>
+<li><span data-interwiki-article="Google Pinyin" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Pinyin (страница отсутствует)">Pinyin</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Pinyin" title="en:Google Pinyin"><span title="Google Pinyin — версия статьи «Google Pinyin» на английском языке">[англ.]</span></a></sup></li>
+<li><span data-interwiki-article="SketchUp Ruby" data-interwiki-lang="en"><a class="new" href="index.php" title="SketchUp Ruby (страница отсутствует)">SketchUp Ruby</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/SketchUp_Ruby" title="en:SketchUp Ruby"><span title="SketchUp Ruby — версия статьи «SketchUp Ruby» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Sitemaps" title="Sitemaps">Sitemaps</a> (<a href="Sitemaps" title="Sitemaps">index</a>)</li>
+<li><a href="Google_Summer_of_Code" title="Google Summer of Code">Summer of Code</a></li>
+<li><span data-interwiki-article="AtGoogleTalks" data-interwiki-lang="en"><a class="new" href="index.php" title="AtGoogleTalks (страница отсутствует)">AtGoogleTalks</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/AtGoogleTalks" title="en:AtGoogleTalks"><span title="AtGoogleTalks — версия статьи «AtGoogleTalks» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Web_Toolkit" title="Google Web Toolkit">Web Toolkit</a></li>
+<li><a href="Google_Optimize" title="Google Optimize">Google Website Optimizer</a></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px">Публикация</th><td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="Google_Alerts" title="Google Alerts">Alerts</a></li>
+<li><a href="Blogger" title="Blogger">Blogger</a></li>
+<li><span data-interwiki-article="Google Bookmarks" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Bookmarks (страница отсутствует)">Bookmarks</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Bookmarks" title="en:Google Bookmarks"><span title="Google Bookmarks — версия статьи «Google Bookmarks» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B" title="Google Документы">Документы</a></li>
+<li><a href="FeedBurner" title="FeedBurner">FeedBurner</a></li>
+<li><span data-interwiki-article="Google Books Library Project" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Books Library Project (страница отсутствует)">Library Project</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Books_Library_Project" title="en:Google Books Library Project"><span title="Google Books Library Project — версия статьи «Google Books Library Project» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Map_Maker" title="Google Map Maker">Map Maker</a></li>
+<li><a href="%D0%A1%D0%B0%D0%B9%D1%82%D1%8B_Google" title="Сайты Google">Sites</a></li>
+<li><a href="YouTube" title="YouTube">YouTube</a></li>
+<li><a href="Google_%D0%94%D0%B8%D1%81%D0%BA" title="Google Диск">Диск</a></li>
+<li><a href="Google_%D0%A4%D0%BE%D1%82%D0%BE" title="Google Фото">Фото</a></li>
+<li><a href="Google_Keep" title="Google Keep">Keep</a></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px"><a href="Google_(%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0)" title="Google (поисковая система)">Поиск</a> (<a href="PageRank" title="PageRank">PageRank</a>)</th><td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="Google_Search_Appliance" title="Google Search Appliance">Appliance</a></li>
+<li><span data-interwiki-article="Google Audio Indexing" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Audio Indexing (страница отсутствует)">Audio</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Audio_Indexing" title="en:Google Audio Indexing"><span title="Google Audio Indexing — версия статьи «Google Audio Indexing» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_%D0%9A%D0%BD%D0%B8%D0%B3%D0%B8" title="Google Книги">Books</a></li>
+<li><a href="Google_Images" title="Google Images">Images</a></li>
+<li><a href="Google_%D0%9A%D0%B0%D1%80%D1%82%D1%8B" title="Google Карты">Maps</a> (<a class="mw-redirect" href="Google_Mars" title="Google Mars">Mars</a></li>
+<li><a class="mw-redirect" href="Google_Moon" title="Google Moon">Moon</a></li>
+<li><span data-interwiki-article="Google Ocean" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Ocean (страница отсутствует)">Ocean</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Ocean" title="en:Google Ocean"><span title="Google Ocean — версия статьи «Google Ocean» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Sky" title="Google Sky">Sky</a></li>
+<li><a href="Google_Street_View" title="Google Street View">Street View</a>)</li>
+<li><a href="Google_%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8" title="Google Новости">News</a></li>
+<li><span data-interwiki-article="Google Patents" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Patents (страница отсутствует)">Patents</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Patents" title="en:Google Patents"><span title="Google Patents — версия статьи «Google Patents» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_%D0%9F%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8" title="Google Покупки">Покупки</a></li>
+<li><a href="%D0%90%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D0%B8%D1%8F_Google" title="Академия Google">Scholar</a></li>
+<li><a href="%D0%93%D1%80%D1%83%D0%BF%D0%BF%D1%8B_Google" title="Группы Google">Usenet</a></li>
+<li><a href="Google_%D0%92%D0%B8%D0%B4%D0%B5%D0%BE" title="Google Видео">Video</a></li>
+<li><a href="Google_(%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0)" title="Google (поисковая система)">Web</a></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px">Тематические проекты</th><td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="Google_Finance" title="Google Finance">Finance</a></li>
+<li><a href="Google_Glass" title="Google Glass">Google Glass</a></li>
+<li><a href="Waymo" title="Waymo">Беспилотный автомобиль Google</a></li>
+<li><a href="Loon" title="Loon">Loon</a></li>
+<li><a href="Tango_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0)" title="Tango (платформа)">Проект Tango</a></li>
+<li><a href="Google_Cardboard" title="Google Cardboard">Google Cardboard</a></li>
+<li><a href="Noto" title="Noto">Noto</a></li>
+<li><a href="Google_Code_Jam" title="Google Code Jam">Code Jam</a></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px">Закрытые проекты</th><td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><span data-interwiki-article="Google Answers" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Вопросы и ответы (страница отсутствует)">Вопросы и ответы</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Answers" title="en:Google Answers"><span title="Google Answers — версия статьи «Google Вопросы и ответы» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Browser_Sync" title="Google Browser Sync">Browser Sync</a></li>
+<li><a href="Google_Base" title="Google Base">Base</a></li>
+<li><a href="Google_Buzz" title="Google Buzz">Buzz</a></li>
+<li><a href="Google_Checkout" title="Google Checkout">Checkout</a></li>
+<li><span data-interwiki-article="Click-to-call" data-interwiki-lang="en"><a class="new" href="index.php" title="Click-to-call (страница отсутствует)">Click-to-call</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Click-to-call" title="en:Click-to-call"><span title="Click-to-call — версия статьи «Click-to-call» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Code_Search" title="Google Code Search">Code</a></li>
+<li><a href="Google_Desktop" title="Google Desktop">Desktop</a></li>
+<li><span data-interwiki-article="Dodgeball (service)" data-interwiki-lang="en"><a class="new" href="index.php" title="Dodgeball (сервис) (страница отсутствует)">Dodgeball</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Dodgeball_(service)" title="en:Dodgeball (service)"><span title="Dodgeball (service) — версия статьи «Dodgeball (сервис)» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Gears" title="Gears">Gears</a></li>
+<li><a class="new" href="index.php" title="GOOG-411 (страница отсутствует)">GOOG-411</a></li>
+<li><a href="Google_Health" title="Google Health">Health</a></li>
+<li><a href="IGoogle" title="IGoogle">iGoogle</a></li>
+<li><span data-interwiki-article="Google Image Labeler" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Image Labeler (страница отсутствует)">Image Labeler</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Image_Labeler" title="en:Google Image Labeler"><span title="Google Image Labeler — версия статьи «Google Image Labeler» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Jaiku" title="Jaiku">Jaiku</a></li>
+<li><a href="Knol" title="Knol">Knol</a></li>
+<li><a href="%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D1%8F_Google" title="Лаборатория Google">Labs</a></li>
+<li><a href="Google_Lively" title="Google Lively">Lively</a></li>
+<li><span data-interwiki-article="Google Mashup Editor" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Mashup Editor (страница отсутствует)">Mashup Editor</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Mashup_Editor" title="en:Google Mashup Editor"><span title="Google Mashup Editor — версия статьи «Google Mashup Editor» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Notebook" title="Google Notebook">Notebook</a></li>
+<li><a href="Orkut" title="Orkut">Orkut</a></li>
+<li><a href="%D0%9F%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D1%8B%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B_Google" title="Полезные программы Google">Pack</a></li>
+<li><a href="Panoramio" title="Panoramio">Panoramio</a></li>
+<li><a href="Picasa" title="Picasa">Picasa</a></li>
+<li><a href="Google_Page_Creator" title="Google Page Creator">Page Creator</a></li>
+<li><a href="Picnik" title="Picnik">Picnik</a></li>
+<li><a href="Google_Reader" title="Google Reader">Reader</a></li>
+<li><span data-interwiki-article="Google SearchWiki" data-interwiki-lang="en"><a class="new" href="index.php" title="Google SearchWiki (страница отсутствует)">SearchWiki</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_SearchWiki" title="en:Google SearchWiki"><span title="Google SearchWiki — версия статьи «Google SearchWiki» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="%D0%9F%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D1%8B%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B_Google" title="Полезные программы Google">Updater</a></li>
+<li><span data-interwiki-article="Google Video Marketplace" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Video Marketplace (страница отсутствует)">Video Marketplace</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Video_Marketplace" title="en:Google Video Marketplace"><span title="Google Video Marketplace — версия статьи «Google Video Marketplace» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Wave" title="Google Wave">Wave</a></li>
+<li><a href="Google_Web_Accelerator" title="Google Web Accelerator">Web Accelerator</a></li>
+<li><a href="Google_Play_Music" title="Google Play Music">Google Play Music</a></li></ul>
+</div></td></tr><tr><th class="navbox-group" scope="row" style="width:1px"><a href="%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:Google" title="Категория:Google">См. также</a></th><td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_Google" title="История Google">История</a></li>
+<li><a href="%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BF%D0%BE%D0%B3%D0%BB%D0%BE%D1%89%D0%B5%D0%BD%D0%B8%D0%B9_Google" title="Список поглощений Google">Поглощения</a></li>
+<li><a href="%D0%A1%D0%BB%D1%83%D0%B6%D0%B1%D1%8B_%D0%B8_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D1%8B_Google" title="Службы и проекты Google">Список сервисов и инструментов</a></li>
+<li><a href="%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_Google" title="Логотип Google">Логотип</a></li>
+<li><a href="Google_Doodle" title="Google Doodle">Doodle</a></li>
+<li><span data-interwiki-article="Censorship by Google" data-interwiki-lang="en"><a class="new" href="index.php" title="Цензура Google (страница отсутствует)">Цензура</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Censorship_by_Google" title="en:Censorship by Google"><span title="Censorship by Google — версия статьи «Цензура Google» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Project_Ara" title="Project Ara">Ara</a></li>
+<li><a href="Google_Arts_%26_Culture" title="Google Arts &amp; Culture">Arts &amp; Culture</a></li>
+<li><a href="Calico" title="Calico">Calico</a></li>
+<li><span data-interwiki-article="Google Current" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Current (страница отсутствует)">Current</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Current" title="en:Google Current"><span title="Google Current — версия статьи «Google Current» на английском языке">[англ.]</span></a></sup></li>
+<li><span data-interwiki-article="Google Earth Outreach" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Earth Outreach (страница отсутствует)">Earth Outreach</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Earth_Outreach" title="en:Google Earth Outreach"><span title="Google Earth Outreach — версия статьи «Google Earth Outreach» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Google_Foundation" title="Google Foundation">Foundation</a> (Google.org)</li>
+<li><span data-interwiki-article="Google China" data-interwiki-lang="en"><a class="new" href="index.php" title="Google China (страница отсутствует)">Google China</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_China" title="en:Google China"><span title="Google China — версия статьи «Google China» на английском языке">[англ.]</span></a></sup></li>
+<li><a href="Googleplex" title="Googleplex">Googleplex</a></li>
+<li><a href="X_Development_LLC" title="X Development LLC">Google X</a></li>
+<li><a href="Google_Lunar_X_PRIZE" title="Google Lunar X PRIZE">Lunar X Prize</a></li>
+<li><a href="O" title="Google I/O">I/O</a></li>
+<li><span data-interwiki-article="Google WiFi" data-interwiki-lang="en"><a class="new" href="index.php" title="Google WiFi (страница отсутствует)">WiFi</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_WiFi" title="en:Google WiFi"><span title="Google WiFi — версия статьи «Google WiFi» на английском языке">[англ.]</span></a></sup></li>
+<li><span data-interwiki-article="Google Zeitgeist" data-interwiki-lang="en"><a class="new" href="index.php" title="Google Zeitgeist (страница отсутствует)">Zeitgeist</a></span><sup class="noprint" style="font-style:normal; font-weight:normal;"><a class="extiw" href="https://en.wikipedia.org/wiki/Google_Zeitgeist" title="en:Google Zeitgeist"><span title="Google Zeitgeist — версия статьи «Google Zeitgeist» на английском языке">[англ.]</span></a></sup></li>
+<li>«<a href="%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F_%D0%B1%D0%BE%D0%BC%D0%B1%D0%B0" title="Поисковая бомба">Бомбы</a>»</li>
+<li><a href="%D0%93%D1%83%D0%B3%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" title="Гуглизация">Гуглизация</a></li>
+<li><a href="Dinosaur_Game" title="Dinosaur Game">Dinosaur Game</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw‐web.eqiad.main‐b544d4cb5‐rml6w
+Cached time: 20251123064043
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.133 seconds
+Real time usage: 0.189 seconds
+Preprocessor visited node count: 751/1000000
+Revision size: 9755/2097152 bytes
+Post‐expand include size: 79111/2097152 bytes
+Template argument size: 449/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 29/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 5988/5000000 bytes
+Lua time usage: 0.052/10.000 seconds
+Lua memory usage: 2997983/52428800 bytes
+Number of Wikibase entities loaded: 0/500
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  131.058      1 -total
+ 58.21%   76.294      1 Шаблон:Google
+ 56.04%   73.445      1 Шаблон:Навигационная_таблица
+ 42.07%   55.132     29 Шаблон:Нп1
+ 41.72%   54.682      1 Шаблон:Примечания
+ 35.35%   46.327      1 Шаблон:Cite_web
+  1.84%    2.409      2 Шаблон:Wayback
+  1.34%    1.750      3 Шаблон:Nobr
+-->
+<!-- Saved in parser cache with key ruwiki:stable-pcache:1406277:|#|:idhash:canonical and timestamp 20251123064043 and revision id 146281996. Rendering was triggered because: unknown
+ -->
+</div><noscript><img alt="" height="1" src="start" style="border: none; position: absolute;" width="1"/></noscript>
+<div class="printfooter" data-nosnippet="">Источник — <a dir="ltr" href="index.php">https://ru.wikipedia.org/w/index.php?title=MapReduce&amp;oldid=146281996</a></div></div>
+<div class="catlinks" data-mw="interface" id="catlinks"><div class="mw-normal-catlinks" id="mw-normal-catlinks"><a href="%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8" title="Служебная:Категории">Категории</a>: <ul><li><a href="%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:Google" title="Категория:Google">Google</a></li><li><a href="%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" title="Категория:Функциональное программирование">Функциональное программирование</a></li><li><a href="%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%9F%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F" title="Категория:Параллельные вычисления">Параллельные вычисления</a></li></ul></div><div class="mw-hidden-catlinks mw-hidden-cats-hidden" id="mw-hidden-catlinks">Скрытые категории: <ul><li><a href="%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B,_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8E%D1%89%D0%B8%D0%B5_%D1%83%D1%81%D1%82%D0%B0%D1%80%D0%B5%D0%B2%D1%88%D0%B8%D0%B9_%D1%82%D0%B5%D0%B3_source" title="Категория:Страницы, использующие устаревший тег source">Страницы, использующие устаревший тег source</a></li><li><a href="%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:Cite_web_(%D0%BD%D0%B5_%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD_%D1%8F%D0%B7%D1%8B%D0%BA)" title="Категория:Википедия:Cite web (не указан язык)">Википедия:Cite web (не указан язык)</a></li></ul></div></div>
+</div>
+</div>
+<div id="mw-navigation">
+<h2>Навигация</h2>
+<div id="mw-head">
+<nav aria-labelledby="p-personal-label" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" id="p-personal">
+<h3 class="vector-menu-heading" id="p-personal-label">
+<span class="vector-menu-heading-label">Персональные инструменты</span>
+</h3>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+<li class="mw-list-item" id="pt-anonuserpage"><span title="Страница участника для моего IP">Вы не представились системе</span></li><li class="mw-list-item" id="pt-anontalk"><a accesskey="n" href="%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%9C%D0%BE%D1%91_%D0%BE%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5" title="Страница обсуждений для моего IP [n]"><span>Обсуждение</span></a></li><li class="mw-list-item" id="pt-anoncontribs"><a accesskey="y" href="%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%9C%D0%BE%D0%B9_%D0%B2%D0%BA%D0%BB%D0%B0%D0%B4" title="Список правок, сделанных с этого IP-адреса [y]"><span>Вклад</span></a></li><li class="mw-list-item" id="pt-createaccount"><a href="index.php" title="Мы предлагаем вам создать учётную запись и войти в систему, хотя это и не обязательно."><span>Создать учётную запись</span></a></li><li class="mw-list-item" id="pt-login"><a accesskey="o" href="index.php" title="Здесь можно зарегистрироваться в системе, но это необязательно. [o]"><span>Войти</span></a></li>
+</ul>
+</div>
+</nav>
+<div id="left-navigation">
+<nav aria-labelledby="p-namespaces-label" class="mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy vector-menu" id="p-namespaces">
+<h3 class="vector-menu-heading" id="p-namespaces-label">
+<span class="vector-menu-heading-label">Пространства имён</span>
+</h3>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+<li class="selected mw-list-item" id="ca-nstab-main"><a accesskey="c" href="MapReduce" title="Просмотреть контентную страницу [c]"><span>Статья</span></a></li><li class="mw-list-item" id="ca-talk"><a accesskey="t" href="%D0%9E%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5:MapReduce" rel="discussion" title="Обсуждение основной страницы [t]"><span>Обсуждение</span></a></li>
+</ul>
+</div>
+</nav>
+<nav aria-labelledby="p-variants-label" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown vector-menu" id="p-variants">
+<input aria-haspopup="true" aria-labelledby="p-variants-label" class="vector-menu-checkbox" data-event-name="ui.dropdown-p-variants" id="p-variants-checkbox" role="button" type="checkbox"/>
+<label class="vector-menu-heading" id="p-variants-label">
+<span class="vector-menu-heading-label">русский</span>
+</label>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+</ul>
+</div>
+</nav>
+</div>
+<div id="right-navigation">
+<nav aria-labelledby="p-views-label" class="mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy vector-menu" id="p-views">
+<h3 class="vector-menu-heading" id="p-views-label">
+<span class="vector-menu-heading-label">Просмотры</span>
+</h3>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+<li class="selected icon mw-list-item" id="ca-view"><a href="MapReduce"><span>Читать</span></a></li><li class="mw-list-item" id="ca-ve-edit"><a accesskey="v" href="index.php" title="Редактировать данную страницу [v]"><span>Править</span></a></li><li class="collapsible mw-list-item" id="ca-edit"><a accesskey="e" href="index.php" title="Править исходный текст этой страницы [e]"><span>Править код</span></a></li><li class="icon mw-list-item" id="ca-history"><a accesskey="h" href="index.php" title="Журнал изменений страницы [h]"><span>История</span></a></li>
+</ul>
+</div>
+</nav>
+<nav aria-labelledby="p-cactions-label" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-menu" id="p-cactions" title="Больше возможностей">
+<input aria-haspopup="true" aria-labelledby="p-cactions-label" class="vector-menu-checkbox" data-event-name="ui.dropdown-p-cactions" id="p-cactions-checkbox" role="button" type="checkbox"/>
+<label class="vector-menu-heading" id="p-cactions-label">
+<span class="vector-menu-heading-label">Ещё</span>
+</label>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+</ul>
+</div>
+</nav>
+<div class="vector-search-box-vue vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box" id="p-search" role="search">
+<h3>Поиск</h3>
+<form action="/w/index.php" class="vector-search-box-form" id="searchform">
+<div class="vector-search-box-inner" data-search-loc="header-navigation" id="simpleSearch">
+<input accesskey="f" aria-label="Искать в Википедии" autocapitalize="sentences" class="vector-search-box-input" id="searchInput" name="search" placeholder="Искать в Википедии" spellcheck="false" title="Искать в Википедии [f]" type="search"/>
+<input name="title" type="hidden" value="Служебная:Поиск"/>
+<input class="searchButton mw-fallbackSearchButton" id="mw-searchButton" name="fulltext" title="Найти страницы, содержащие указанный текст" type="submit" value="Найти"/>
+<input class="searchButton" id="searchButton" name="go" title="Перейти к странице, имеющей в точности такое название" type="submit" value="Перейти"/>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="vector-legacy-sidebar" id="mw-panel">
+<div id="p-logo" role="banner">
+<a class="mw-wiki-logo" href="%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Перейти на заглавную страницу"></a>
+</div>
+<nav aria-labelledby="p-navigation-label" class="mw-portlet mw-portlet-navigation vector-menu-portal portal vector-menu" id="p-navigation">
+<h3 class="vector-menu-heading" id="p-navigation-label">
+<span class="vector-menu-heading-label">Навигация</span>
+</h3>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+<li class="mw-list-item" id="n-mainpage-description"><a accesskey="z" href="%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Перейти на заглавную страницу [z]"><span>Заглавная страница</span></a></li><li class="mw-list-item" id="n-content"><a href="%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5"><span>Содержание</span></a></li><li class="mw-list-item" id="n-featured"><a href="%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%98%D0%B7%D0%B1%D1%80%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8" title="Статьи, считающиеся лучшими статьями проекта"><span>Избранные статьи</span></a></li><li class="mw-list-item" id="n-randompage"><a accesskey="x" href="%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Посмотреть случайно выбранную страницу [x]"><span>Случайная статья</span></a></li><li class="mw-list-item" id="n-currentevents"><a href="%D0%9F%D0%BE%D1%80%D1%82%D0%B0%D0%BB:%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B5_%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F" title="Статьи о текущих событиях в мире"><span>Текущие события</span></a></li><li class="mw-list-item" id="n-sitesupport"><a href="https://donate.wikimedia.org/?wmf_source=donate&amp;wmf_medium=sidebar&amp;wmf_campaign=ru.wikipedia.org&amp;uselang=ru" title="Поддержите нас"><span>Пожертвовать</span></a></li>
+</ul>
+</div>
+</nav>
+<nav aria-labelledby="p-participation-label" class="mw-portlet mw-portlet-participation vector-menu-portal portal vector-menu" id="p-participation">
+<h3 class="vector-menu-heading" id="p-participation-label">
+<span class="vector-menu-heading-label">Участие</span>
+</h3>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+<li class="mw-list-item" id="n-bug_in_article"><a href="%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BE%D0%B1_%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B0%D1%85" title="Сообщить об ошибке в этой статье"><span>Сообщить об ошибке</span></a></li><li class="mw-list-item" id="n-introduction"><a href="%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0:%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5"><span>Как править статьи</span></a></li><li class="mw-list-item" id="n-portal"><a href="%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%BE" title="О проекте, о том, чем здесь можно заниматься, а также — где что находится"><span>Сообщество</span></a></li><li class="mw-list-item" id="n-forum"><a href="%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A4%D0%BE%D1%80%D1%83%D0%BC" title="Форум участников Википедии"><span>Форум</span></a></li><li class="mw-list-item" id="n-help"><a href="%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0" title="Место расположения Справки"><span>Справка</span></a></li><li class="mw-list-item" id="n-recentchanges"><a accesskey="r" href="%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%B2%D0%B5%D0%B6%D0%B8%D0%B5_%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8" title="Список последних изменений [r]"><span>Свежие правки</span></a></li><li class="mw-list-item" id="n-newpages"><a href="%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%9D%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B" title="Список недавно созданных страниц"><span>Новые страницы</span></a></li><li class="mw-list-item" id="n-specialpages"><a href="%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%BF%D0%B5%D1%86%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B"><span>Служебные страницы</span></a></li>
+</ul>
+</div>
+</nav>
+<nav aria-labelledby="p-tb-label" class="mw-portlet mw-portlet-tb vector-menu-portal portal vector-menu" id="p-tb">
+<h3 class="vector-menu-heading" id="p-tb-label">
+<span class="vector-menu-heading-label">Инструменты</span>
+</h3>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+<li class="mw-list-item" id="t-whatlinkshere"><a accesskey="j" href="MapReduce" title="Список всех страниц, ссылающихся на данную [j]"><span>Ссылки сюда</span></a></li><li class="mw-list-item" id="t-recentchangeslinked"><a accesskey="k" href="MapReduce" rel="nofollow" title="Последние изменения в страницах, на которые ссылается эта страница [k]"><span>Связанные правки</span></a></li><li class="mw-list-item" id="t-permalink"><a href="index.php" title="Постоянная ссылка на эту версию страницы"><span>Постоянная ссылка</span></a></li><li class="mw-list-item" id="t-info"><a href="index.php" title="Подробнее об этой странице"><span>Сведения о странице</span></a></li><li class="mw-list-item" id="t-cite"><a href="index.php" title="Информация о том, как цитировать эту страницу"><span>Цитировать страницу</span></a></li><li class="mw-list-item" id="t-urlshortener"><a href="index.php"><span>Получить короткий URL</span></a></li><li class="mw-list-item" id="t-urlshortener-qrcode"><a href="index.php"><span>Скачать QR-код</span></a></li>
+</ul>
+</div>
+</nav>
+<nav aria-labelledby="p-coll-print_export-label" class="mw-portlet mw-portlet-coll-print_export vector-menu-portal portal vector-menu" id="p-coll-print_export">
+<h3 class="vector-menu-heading" id="p-coll-print_export-label">
+<span class="vector-menu-heading-label">Печать/экспорт</span>
+</h3>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+<li class="mw-list-item" id="coll-download-as-rl"><a href="index.php" title="Скачать эту страницу как файл PDF"><span>Скачать как PDF</span></a></li><li class="mw-list-item" id="t-print"><a accesskey="p" href="index.php" title="Версия этой страницы для печати [p]"><span>Версия для печати</span></a></li>
+</ul>
+</div>
+</nav>
+<nav aria-labelledby="p-wikibase-otherprojects-label" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu-portal portal vector-menu" id="p-wikibase-otherprojects">
+<h3 class="vector-menu-heading" id="p-wikibase-otherprojects-label">
+<span class="vector-menu-heading-label">В других проектах</span>
+</h3>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+<li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:MapReduce" hreflang="en"><span>Викисклад</span></a></li><li class="wb-otherproject-link wb-otherproject-wikibase-dataitem mw-list-item" id="t-wikibase"><a accesskey="g" href="https://www.wikidata.org/wiki/Special:EntityPage/Q567759" title="Ссылка на связанный элемент репозитория данных [g]"><span>Элемент Викиданных</span></a></li>
+</ul>
+</div>
+</nav>
+<nav aria-labelledby="p-lang-label" class="mw-portlet mw-portlet-lang vector-menu-portal portal vector-menu" id="p-lang">
+<h3 class="vector-menu-heading" id="p-lang-label">
+<span class="vector-menu-heading-label">На других языках</span>
+</h3>
+<div class="vector-menu-content">
+<ul class="vector-menu-content-list">
+<li class="interlanguage-link interwiki-ar mw-list-item"><a class="interlanguage-link-target" data-language-autonym="العربية" data-language-local-name="арабский" data-title="نموذج الهيكلة والتجميع" href="https://ar.wikipedia.org/wiki/%D9%86%D9%85%D9%88%D8%B0%D8%AC_%D8%A7%D9%84%D9%87%D9%8A%D9%83%D9%84%D8%A9_%D9%88%D8%A7%D9%84%D8%AA%D8%AC%D9%85%D9%8A%D8%B9" hreflang="ar" lang="ar" title="نموذج الهيكلة والتجميع — арабский"><span>العربية</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Català" data-language-local-name="каталанский" data-title="MapReduce" href="https://ca.wikipedia.org/wiki/MapReduce" hreflang="ca" lang="ca" title="MapReduce — каталанский"><span>Català</span></a></li><li class="interlanguage-link interwiki-cs mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Čeština" data-language-local-name="чешский" data-title="MapReduce" href="https://cs.wikipedia.org/wiki/MapReduce" hreflang="cs" lang="cs" title="MapReduce — чешский"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Deutsch" data-language-local-name="немецкий" data-title="MapReduce" href="https://de.wikipedia.org/wiki/MapReduce" hreflang="de" lang="de" title="MapReduce — немецкий"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-en mw-list-item"><a class="interlanguage-link-target" data-language-autonym="English" data-language-local-name="английский" data-title="MapReduce" href="https://en.wikipedia.org/wiki/MapReduce" hreflang="en" lang="en" title="MapReduce — английский"><span>English</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Español" data-language-local-name="испанский" data-title="MapReduce" href="https://es.wikipedia.org/wiki/MapReduce" hreflang="es" lang="es" title="MapReduce — испанский"><span>Español</span></a></li><li class="interlanguage-link interwiki-eu mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Euskara" data-language-local-name="баскский" data-title="MapReduce" href="https://eu.wikipedia.org/wiki/MapReduce" hreflang="eu" lang="eu" title="MapReduce — баскский"><span>Euskara</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a class="interlanguage-link-target" data-language-autonym="فارسی" data-language-local-name="персидский" data-title="نگاشت‌کاهش" href="https://fa.wikipedia.org/wiki/%D9%86%DA%AF%D8%A7%D8%B4%D8%AA%E2%80%8C%DA%A9%D8%A7%D9%87%D8%B4" hreflang="fa" lang="fa" title="نگاشت‌کاهش — персидский"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Français" data-language-local-name="французский" data-title="MapReduce" href="https://fr.wikipedia.org/wiki/MapReduce" hreflang="fr" lang="fr" title="MapReduce — французский"><span>Français</span></a></li><li class="interlanguage-link interwiki-hu mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Magyar" data-language-local-name="венгерский" data-title="MapReduce" href="https://hu.wikipedia.org/wiki/MapReduce" hreflang="hu" lang="hu" title="MapReduce — венгерский"><span>Magyar</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Italiano" data-language-local-name="итальянский" data-title="MapReduce" href="https://it.wikipedia.org/wiki/MapReduce" hreflang="it" lang="it" title="MapReduce — итальянский"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a class="interlanguage-link-target" data-language-autonym="日本語" data-language-local-name="японский" data-title="MapReduce" href="https://ja.wikipedia.org/wiki/MapReduce" hreflang="ja" lang="ja" title="MapReduce — японский"><span>日本語</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a class="interlanguage-link-target" data-language-autonym="한국어" data-language-local-name="корейский" data-title="맵리듀스" href="https://ko.wikipedia.org/wiki/%EB%A7%B5%EB%A6%AC%EB%93%80%EC%8A%A4" hreflang="ko" lang="ko" title="맵리듀스 — корейский"><span>한국어</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Nederlands" data-language-local-name="нидерландский" data-title="MapReduce" href="https://nl.wikipedia.org/wiki/MapReduce" hreflang="nl" lang="nl" title="MapReduce — нидерландский"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Polski" data-language-local-name="польский" data-title="MapReduce" href="https://pl.wikipedia.org/wiki/MapReduce" hreflang="pl" lang="pl" title="MapReduce — польский"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Português" data-language-local-name="португальский" data-title="MapReduce" href="https://pt.wikipedia.org/wiki/MapReduce" hreflang="pt" lang="pt" title="MapReduce — португальский"><span>Português</span></a></li><li class="interlanguage-link interwiki-ro mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Română" data-language-local-name="румынский" data-title="MapReduce" href="https://ro.wikipedia.org/wiki/MapReduce" hreflang="ro" lang="ro" title="MapReduce — румынский"><span>Română</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Српски / srpski" data-language-local-name="сербский" data-title="MapReduce" href="https://sr.wikipedia.org/wiki/MapReduce" hreflang="sr" lang="sr" title="MapReduce — сербский"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a class="interlanguage-link-target" data-language-autonym="Українська" data-language-local-name="украинский" data-title="MapReduce" href="https://uk.wikipedia.org/wiki/MapReduce" hreflang="uk" lang="uk" title="MapReduce — украинский"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a class="interlanguage-link-target" data-language-autonym="中文" data-language-local-name="китайский" data-title="MapReduce" href="https://zh.wikipedia.org/wiki/MapReduce" hreflang="zh" lang="zh" title="MapReduce — китайский"><span>中文</span></a></li>
+</ul>
+<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a class="wbc-editpage" href="https://www.wikidata.org/wiki/Special:EntityPage/Q567759#sitelinks-wikipedia" title="Править ссылки на другие языки">Править ссылки</a></span></div>
+</div>
+</nav>
+</div>
+</div>
+<footer class="mw-footer" id="footer">
+<ul id="footer-info">
+<li id="footer-info-lastmod"> Эта страница в последний раз была отредактирована 16 июля 2025 года в 10:37.</li>
+<li id="footer-info-copyright">Текст доступен по <a class="external text" href="//creativecommons.org/licenses/by-sa/4.0/deed.ru" rel="nofollow">лицензии Creative Commons «С указанием авторства — С сохранением условий» (CC BY-SA)</a>; в отдельных случаях могут действовать дополнительные условия.
+<span class="noprint">Подробнее см. <a class="external text" href="https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/ru">Условия использования</a>.</span><br/>
+Wikipedia® — зарегистрированный товарный знак некоммерческой организации <a class="external text" href="https://wikimediafoundation.org/ru/" rel="nofollow">«Фонд Викимедиа» (Wikimedia Foundation, Inc.)</a></li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy/ru">Политика конфиденциальности</a></li>
+<li id="footer-places-about"><a href="%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5">Описание Википедии</a></li>
+<li id="footer-places-disclaimers"><a href="%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9E%D1%82%D0%BA%D0%B0%D0%B7_%D0%BE%D1%82_%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8">Отказ от ответственности</a></li>
+<li id="footer-places-contact"><a href="Википедия:Контакты">Свяжитесь с нами</a></li>
+<li id="footer-places-wm-codeofconduct"><a href="https://foundation.wikimedia.org/wiki/Policy:Universal_Code_of_Conduct/ru">Кодекс поведения</a></li>
+<li id="footer-places-developers"><a href="https://developer.wikimedia.org">Разработчики</a></li>
+<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/ru.wikipedia.org">Статистика</a></li>
+<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement">Заявление о куки</a></li>
+<li id="footer-places-mobileview"><a class="noprint stopMobileRedirectToggle" href="index.php">Мобильная версия</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-copyrightico"><a class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled" href="https://www.wikimedia.org/"><picture><source height="29" media="(min-width: 500px)" srcset="/static/images/footer/wikimedia-button.svg" width="84"/><img alt="Wikimedia Foundation" height="25" lang="en" loading="lazy" src="wikimedia.svg" width="25"/></picture></a></li>
+<li id="footer-poweredbyico"><a class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled" href="https://www.mediawiki.org/"><picture><source height="31" media="(min-width: 500px)" srcset="/w/resources/assets/poweredby_mediawiki.svg" width="88"/><img alt="Powered by MediaWiki" height="25" lang="en" loading="lazy" src="mediawiki_compact.svg" width="25"/></picture></a></li>
+</ul>
+</footer>
+<div class="mw-portlet mw-portlet-dock-bottom emptyPortlet vector-menu-portal portal" id="p-dock-bottom">
+<ul>
+</ul>
+</div>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgHostname":"mw-web.eqiad.main-79d5875b8c-sj4fj","wgBackendResponseTime":172,"wgPageParseReport":{"limitreport":{"cputime":"0.133","walltime":"0.189","ppvisitednodes":{"value":751,"limit":1000000},"revisionsize":{"value":9755,"limit":2097152},"postexpandincludesize":{"value":79111,"limit":2097152},"templateargumentsize":{"value":449,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":29,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":5988,"limit":5000000},"entityaccesscount":{"value":0,"limit":500},"timingprofile":["100.00%  131.058      1 -total"," 58.21%   76.294      1 Шаблон:Google"," 56.04%   73.445      1 Шаблон:Навигационная_таблица"," 42.07%   55.132     29 Шаблон:Нп1"," 41.72%   54.682      1 Шаблон:Примечания"," 35.35%   46.327      1 Шаблон:Cite_web","  1.84%    2.409      2 Шаблон:Wayback","  1.34%    1.750      3 Шаблон:Nobr"]},"scribunto":{"limitreport-timeusage":{"value":"0.052","limit":"10.000"},"limitreport-memusage":{"value":2997983,"limit":52428800}},"cachereport":{"origin":"mw-web.eqiad.main-b544d4cb5-rml6w","timestamp":"20251123064043","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"MapReduce","url":"https:\/\/ru.wikipedia.org\/wiki\/MapReduce","sameAs":"http:\/\/www.wikidata.org\/entity\/Q567759","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q567759","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"\u0424\u043e\u043d\u0434 \u0412\u0438\u043a\u0438\u043c\u0435\u0434\u0438\u0430","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2008-09-27T13:01:30Z"}</script>
+</body>
+</html>
