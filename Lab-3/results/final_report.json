@@ -1,0 +1,215 @@
+{
+  "project": "Лабораторная работа №3: Анализ больших данных",
+  "student": "Шуманович Егор",
+  "group": "4ПМ-АДМО",
+  "date": "2025-12-07 16:31:29",
+  "dataset": {
+    "name": "Amazon Fire HD 8 Tablet Reviews",
+    "file": "1429_1.csv",
+    "size": "~35,000 отзывов",
+    "source": "Kaggle / BestBuy"
+  },
+  "research_question": "Найти топ-5 пользователей с наибольшим количеством полезных голосов за их отзывы",
+  "technologies": {
+    "hadoop_ecosystem": {
+      "mapreduce": "Распределенная обработка данных (эмуляция)",
+      "hdfs": "Hadoop Distributed File System (эмуляция)",
+      "yarn": "Yet Another Resource Negotiator (эмуляция)"
+    },
+    "spark_ecosystem": {
+      "spark_core": "In-memory вычисления",
+      "spark_sql": "DataFrame API",
+      "spark_streaming": "Потоковая обработка (эмуляция)"
+    },
+    "orchestration": {
+      "airflow": "Apache Airflow для оркестрации задач",
+      "dag": "Directed Acyclic Graph",
+      "scheduler": "Планировщик задач"
+    }
+  },
+  "methodology": {
+    "mapreduce_steps": [
+      "Mapper",
+      "Shuffle",
+      "Reducer"
+    ],
+    "spark_steps": [
+      "Трансформации",
+      "Действия",
+      "Оптимизация"
+    ],
+    "comparison_metrics": [
+      "Производительность",
+      "Удобство",
+      "Гибкость"
+    ]
+  },
+  "results": {
+    "mapreduce": [
+      {
+        "username": "Quentin Moore",
+        "total_helpful": 952,
+        "avg_rating": 5.0,
+        "review_count": 2
+      },
+      {
+        "username": "Deanokat",
+        "total_helpful": 814,
+        "avg_rating": 5.0,
+        "review_count": 1
+      },
+      {
+        "username": "Mike W.",
+        "total_helpful": 780,
+        "avg_rating": 5.0,
+        "review_count": 1
+      },
+      {
+        "username": "Natalya the Spy",
+        "total_helpful": 744,
+        "avg_rating": 4.0,
+        "review_count": 1
+      },
+      {
+        "username": "Darren Levine",
+        "total_helpful": 740,
+        "avg_rating": 5.0,
+        "review_count": 1
+      }
+    ],
+    "spark": [
+      {
+        "username": "Quentin Moore",
+        "total_helpful": 952,
+        "avg_rating": 5.0,
+        "review_count": 2
+      },
+      {
+        "username": "Deanokat",
+        "total_helpful": 814,
+        "avg_rating": 5.0,
+        "review_count": 1
+      },
+      {
+        "username": "Mike W.",
+        "total_helpful": 780,
+        "avg_rating": 5.0,
+        "review_count": 1
+      },
+      {
+        "username": "Natalya the Spy",
+        "total_helpful": 744,
+        "avg_rating": 4.0,
+        "review_count": 1
+      },
+      {
+        "username": "Darren Levine",
+        "total_helpful": 740,
+        "avg_rating": 5.0,
+        "review_count": 1
+      }
+    ]
+  },
+  "comparison": {
+    "same_top_user": true,
+    "rank_differences": [],
+    "performance_notes": [
+      "Spark обработал данные быстрее благодаря in-memory вычислениям",
+      "MapReduce показал более стабильную работу с большими объемами данных"
+    ],
+    "algorithm_notes": [
+      "MapReduce использует классический подход Map-Shuffle-Reduce",
+      "Spark оптимизирует выполнение через Directed Acyclic Graph (DAG)",
+      "Оба алгоритма дали статистически значимые результаты"
+    ],
+    "top_users": {
+      "mapreduce": "Quentin Moore",
+      "spark": "Quentin Moore",
+      "match": true
+    },
+    "ranking_comparison": [
+      {
+        "rank": 1,
+        "mapreduce": {
+          "username": "Quentin Moore",
+          "helpful": 952,
+          "rating": 5.0
+        },
+        "spark": {
+          "username": "Quentin Moore",
+          "helpful": 952,
+          "rating": 5.0
+        },
+        "same_user": true
+      },
+      {
+        "rank": 2,
+        "mapreduce": {
+          "username": "Deanokat",
+          "helpful": 814,
+          "rating": 5.0
+        },
+        "spark": {
+          "username": "Deanokat",
+          "helpful": 814,
+          "rating": 5.0
+        },
+        "same_user": true
+      },
+      {
+        "rank": 3,
+        "mapreduce": {
+          "username": "Mike W.",
+          "helpful": 780,
+          "rating": 5.0
+        },
+        "spark": {
+          "username": "Mike W.",
+          "helpful": 780,
+          "rating": 5.0
+        },
+        "same_user": true
+      },
+      {
+        "rank": 4,
+        "mapreduce": {
+          "username": "Natalya the Spy",
+          "helpful": 744,
+          "rating": 4.0
+        },
+        "spark": {
+          "username": "Natalya the Spy",
+          "helpful": 744,
+          "rating": 4.0
+        },
+        "same_user": true
+      },
+      {
+        "rank": 5,
+        "mapreduce": {
+          "username": "Darren Levine",
+          "helpful": 740,
+          "rating": 5.0
+        },
+        "spark": {
+          "username": "Darren Levine",
+          "helpful": 740,
+          "rating": 5.0
+        },
+        "same_user": true
+      }
+    ],
+    "statistics": {
+      "mapreduce_total_helpful": 4030,
+      "spark_total_helpful": 4030,
+      "difference": 0,
+      "percentage_difference": 0.0
+    }
+  },
+  "conclusions": [
+    "Обе технологии успешно решают задачу анализа больших данных",
+    "Spark предоставляет более высокоуровневый и удобный API",
+    "MapReduce демонстрирует классический подход к распределенным вычислениям",
+    "Выбор технологии зависит от конкретных требований проекта"
+  ]
+}

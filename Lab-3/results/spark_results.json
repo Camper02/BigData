@@ -1,0 +1,32 @@
+[
+  {
+    "username": "Quentin Moore",
+    "total_helpful": 952,
+    "avg_rating": 5.0,
+    "review_count": 2
+  },
+  {
+    "username": "Deanokat",
+    "total_helpful": 814,
+    "avg_rating": 5.0,
+    "review_count": 1
+  },
+  {
+    "username": "Mike W.",
+    "total_helpful": 780,
+    "avg_rating": 5.0,
+    "review_count": 1
+  },
+  {
+    "username": "Natalya the Spy",
+    "total_helpful": 744,
+    "avg_rating": 4.0,
+    "review_count": 1
+  },
+  {
+    "username": "Darren Levine",
+    "total_helpful": 740,
+    "avg_rating": 5.0,
+    "review_count": 1
+  }
+]
