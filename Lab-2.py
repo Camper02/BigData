@@ -45,12 +45,12 @@ class MatrixMultiplication:
         if matrix_name == 'A':
             # A[i][j] -> для всех k: emit((i,k), ('A', j, value))
             i, j = idx1, idx2
-            for k in range(self.p): # (i,0), (i,1), ..., (i,p-1)
+            for k in range(self.p):  # (i,0), (i,1), ..., (i,p-1)
                 mr.emit_intermediate((i, k), ('A', j, value))
         else:  # matrix_name == 'B'
             # B[j][k] -> для всех i: emit((i,k), ('B', j, value))
             j, k = idx1, idx2
-            for i in range(self.m): # (0,k), (1,k), ..., (m-1,k)
+            for i in range(self.m):  # (0,k), (1,k), ..., (m-1,k)
                 mr.emit_intermediate((i, k), ('B', j, value))
 
     def reducer_matrix(self, mr, key, values):
@@ -212,22 +212,25 @@ def demonstrate_matrix_multiplication():
     print("ДЕМОНСТРАЦИЯ: УМНОЖЕНИЕ МАТРИЦ")
     print("=" * 60)
 
-    # Создаем тестовые матрицы
-    A = np.array([
-        [1, 2, 3],
-        [4, 5, 6]
-    ])
+    # Создаем БОЛЬШИЕ тестовые матрицы
+    print("Генерация больших матриц...")
+    np.random.seed(42)
 
-    B = np.array([
-        [7, 8],
-        [9, 10],
-        [11, 12]
-    ])
+    # Матрица A: 50x100
+    A = np.random.rand(50, 100)
 
-    print("Матрица A (2x3):")
-    print(A)
-    print("\nМатрица B (3x2):")
-    print(B)
+    # Матрица B: 100x80
+    B = np.random.rand(100, 80)
+
+    print(f"Матрица A ({A.shape[0]}x{A.shape[1]}):")
+    print(f"Первые 5x5 элементов:")
+    print(A[:5, :5])
+    print(f"...\n")
+
+    print(f"Матрица B ({B.shape[0]}x{B.shape[1]}):")
+    print(f"Первые 5x5 элементов:")
+    print(B[:5, :5])
+    print("...")
 
     # Умножение через MapReduce
     matrix_mult = MatrixMultiplication(A, B)
@@ -236,11 +239,17 @@ def demonstrate_matrix_multiplication():
     # Умножение через NumPy для проверки
     result_numpy = A @ B
 
-    print("\nРезультат умножения через MapReduce:")
-    print(result_mapreduce)
-    print("\nРезультат умножения через NumPy (для проверки):")
-    print(result_numpy)
-    print("\nСовпадают ли результаты?", np.allclose(result_mapreduce, result_numpy))
+    print(f"\nРезультат умножения через MapReduce ({result_mapreduce.shape[0]}x{result_mapreduce.shape[1]}):")
+    print(f"Первые 5x5 элементов:")
+    print(result_mapreduce[:5, :5])
+    print("...")
+
+    print(f"\nРезультат умножения через NumPy (для проверки):")
+    print(f"Первые 5x5 элементов:")
+    print(result_numpy[:5, :5])
+    print("...")
+
+    print(f"\nСовпадают ли результаты?", np.allclose(result_mapreduce, result_numpy))
 
 
 def demonstrate_linear_regression():
@@ -248,13 +257,13 @@ def demonstrate_linear_regression():
     print("ДЕМОНСТРАЦИЯ: ЛИНЕЙНАЯ РЕГРЕССИЯ")
     print("=" * 60)
 
-    # Генерируем тестовые данные
+    # Генерируем БОЛЬШИЕ тестовые данные
     np.random.seed(42)
-    n_samples = 100
-    n_features = 3
+    n_samples = 5000
+    n_features = 20
 
     # Истинные коэффициенты
-    true_w = np.array([2.5, -1.8, 0.7])
+    true_w = np.array([2.5, -1.8, 0.7] + [np.random.randn() for _ in range(n_features - 3)])
     true_b = 3.2
 
     # Генерируем признаки
@@ -264,14 +273,14 @@ def demonstrate_linear_regression():
     y = X @ true_w + true_b + np.random.randn(n_samples) * 0.5
 
     print(f"Сгенерировано {n_samples} samples с {n_features} признаками")
-    print(f"Истинные коэффициенты: w = {true_w}, b = {true_b:.2f}")
+    print(f"Истинные коэффициенты: w = {true_w[:3]}..., b = {true_b:.2f}")
 
     # Обучаем модель через MapReduce
     lr = LinearRegression(X, y)
     w_mapreduce, b_mapreduce = lr.fit()
 
     print(f"\nКоэффициенты через MapReduce:")
-    print(f"w = {w_mapreduce}")
+    print(f"w = {w_mapreduce[:5]}...")  # Показываем только первые 5
     print(f"b = {b_mapreduce:.2f}")
 
     # Обучаем модель через обычный метод для проверки
@@ -281,7 +290,7 @@ def demonstrate_linear_regression():
     b_numpy = w_b_numpy[-1]
 
     print(f"\nКоэффициенты через NumPy (для проверки):")
-    print(f"w = {w_numpy}")
+    print(f"w = {w_numpy[:5]}...")  # Показываем только первые 5
     print(f"b = {b_numpy:.2f}")
 
     # Вычисляем ошибку предсказания
@@ -302,4 +311,3 @@ if __name__ == "__main__":
 
     # Демонстрация линейной регрессии
     demonstrate_linear_regression()
-
